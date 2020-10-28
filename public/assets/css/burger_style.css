@@ -1,0 +1,16 @@
+body,.card{
+    background-color:#F7C359 ;
+}
+img{
+    height:150px;
+}
+.display-5{
+    font-size:1.5rem;
+    font-weight: bold;
+}
+table{
+    border:1px solid #333;
+}
+tbody{
+    margin:10px;
+}

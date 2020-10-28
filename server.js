@@ -6,28 +6,22 @@ const expbs = require('express-handlebars')
 const app = express(); //Start Express
 const PORT = process.env.PORT || 5000; //Set Port
 
+//Handle the Post request and response
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
 //Identify the use of Handlebars
 app.engine('handlebars', expbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars')
 //Database
 
 //Set routes
-//Home Page
-app.get('/', (req, res) => {
-    res.render('index', {
-        'title': 'Home'
-    })
-})
-//About Me Page
-app.get('/about', (req, res) => {
-    res.render('about', {
-        'title': 'About Me'
-    })
-})
-app.get('/icecream/:name', (req, res) => {
-    console.log(icecreams.filter(item => item.name === req.params.name));
-    res.render('icecream', (icecreams.filter(item => item.name === req.params.name))[0])
-})
+//Static Route
+app.use(express.static(path.join(__dirname, 'public')))
 
+
+//Idetify/Link router
+app.use(require('./controllers/burgers_controller'))
 //Initialise server
 app.listen(PORT, () => console.log(`The Express Server is now Up and running on PORT : ${PORT}`))
