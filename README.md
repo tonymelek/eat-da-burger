@@ -17,7 +17,7 @@ Go to your browser and type `http://localhost:5000` to start.
 ## Usage
 Use the textarea and the submit button at the bottom of the page to add new burgers to the menu.
 Use the devour it to transfer from burger menu to devoured menu and use the bin icon to remove the burger from the database.
-![Eat-da_Burger](public\assets\img\screenshot.JPG)
+![Eat-da_Burger](public/assets/img/screeshot.png)
 ## Contributing
 Please, send a proposal for your contribution and if approved, you will be contacted and added as a collaborator.
 ## Tests
