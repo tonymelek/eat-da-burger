@@ -10,12 +10,12 @@ router.get('/', async (req, res) => {
 //Devour API
 router.get('/api/devour/:id', async (req, res) => {
     await burger.update(req.params.id)
-    // res.redirect("/")
+    res.status(200)
 })
 //Remove from Devoured API
 router.get('/api/remove/:id', async (req, res) => {
     await burger.remove(req.params.id)
-    //res.redirect("/")
+    res.status(200)
 })
 //Add New Burger API
 router.post('/newburger', async (req, res) => {
@@ -26,7 +26,7 @@ router.post('/newburger', async (req, res) => {
 //Delete Burger from Menu API
 router.get('/api/delete/:id', async (req, res) => {
     await burger.delete(req.params.id)
-    // res.redirect("/")
+    res.status(200)
 })
 
 module.exports = router
