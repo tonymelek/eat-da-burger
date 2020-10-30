@@ -7,17 +7,17 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-5 col-10 m-2 py-2">
+        <div class="col-lg-4 col-md-5 col-10 m-2 py-2" id="uneaten">
             <h4 class="text-center mb-3">Burger Menu</h4>
 
             {{#each burgers}}
             {{#unless is_selected}}
             <div class="d-flex flex-wrap justify-content-between align-items-center uneaten mb-3 p-2 rounded-lg">
                 <div id={{id}}>{{burger_name}}</div>
-                <div class=" pl-0"> <a id={{burger_name}} class="d-inline-block btn  btn-dark devour"
+                <div class=" pl-0"> <a class="d-inline-block btn  btn-dark devour {{id}}"
                         href="/api/devour/{{id}}">Devour
                         it!</a>
-                    <a class="d-inline-block btn  btn-danger " href="/api/delete/{{id}}"><i
+                    <a class="d-inline-block btn  btn-danger delete {{id}}" href="/api/delete/{{id}}"><i
                             class="far fa-trash-alt"></i></a>
 
                 </div>
@@ -26,14 +26,15 @@
             {{/each}}
 
         </div>
-        <div class="col-lg-4 col-md-5 col-10 m-2 py-2">
+        <div class="col-lg-4 col-md-5 col-10 m-2 py-2" id="eaten">
             <h4 class="text-center mb-3">Devoured Burgers</h4>
 
             {{#each burgers}}
             {{#if is_selected}}
             <div class="d-flex flex-wrap justify-content-between align-items-center eaten mb-3 p-2 rounded-lg">
                 <div class="" id={{id}}>{{burger_name}}</div>
-                <div class=" pl-0"> <a class="d-inline-block mx-3 btn btn-info" href="/api/remove/{{id}}">Remove
+                <div class=" pl-0"> <a class="d-inline-block mx-3 btn btn-info remove {{id}}"
+                        href="/api/remove/{{id}}">Remove
                         it!</a> </div>
 
             </div>
@@ -51,7 +52,7 @@
                         <textarea name="burger" id="burger-box" rows="2" class="w-100 display-5"></textarea>
                     </div>
                     <div class="form-group mx-auto">
-                        <button class="btn btn-lg btn-danger d-block mx-auto" type="submit">Add to Menu</button>
+                        <button class="btn btn-lg btn-danger d-block mx-auto add" type="submit">Add to Menu</button>
 
                 </form>
             </div>

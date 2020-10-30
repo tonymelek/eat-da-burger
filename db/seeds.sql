@@ -1,0 +1,1 @@
+insert into burger_list (burger_name) values ("Cheese Burger"),("Big Mac"), ("Big Tasty"),("Quarter Pounder");
