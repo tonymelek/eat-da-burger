@@ -1,42 +1,50 @@
 <div class="conatiner-fluid">
     <div class="row ">
         <div class="col-12 align-self-center">
+
             <img class="d-block mx-auto my-3" src="./assets/img/burger.png" alt="Burger" srcset="">
+            <h1 class="text-center">Eat-da-Burger</h1>
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-lg-4 col-md-5 col-10 m-2 py-2">
             <h4 class="text-center mb-3">Burger Menu</h4>
-            <table class="mx-auto">
-                {{#each burgers}}
-                {{#unless is_selected}}
-                <tr>
-                    <td class="mb-3" id={{id}}>{{burger_name}}</td>
-                    <td> <a class="d-inline-block mx-3 btn  btn-dark" href="/api/devour/{{id}}">Devour it!</a> </td>
-                </tr>
-                {{/unless}}
-                {{/each}}
-            </table>
-        </div>
-        <div class="col-4">
-            <h4 class="text-center mb-3">Devoured Burgers</h4>
-            <table class="mx-auto">
-                {{#each burgers}}
-                {{#if is_selected}}
-                <tr>
-                    <td class="mb-3" id={{id}}>{{burger_name}}</td>
-                    <td> <a class="d-inline-block mx-3 btn btn-info" href="/api/delete/{{id}}">Remove
-                            it!</a> </td>
-                </tr>
 
-                {{/if}}
-                {{/each}}
-            </table>
+            {{#each burgers}}
+            {{#unless is_selected}}
+            <div class="d-flex flex-wrap justify-content-between align-items-center uneaten mb-3 p-2 rounded-lg">
+                <div id={{id}}>{{burger_name}}</div>
+                <div class=" pl-0"> <a id={{burger_name}} class="d-inline-block btn  btn-dark devour"
+                        href="/api/devour/{{id}}">Devour
+                        it!</a>
+                    <a class="d-inline-block btn  btn-danger " href="/api/delete/{{id}}"><i
+                            class="far fa-trash-alt"></i></a>
+
+                </div>
+            </div>
+            {{/unless}}
+            {{/each}}
+
+        </div>
+        <div class="col-lg-4 col-md-5 col-10 m-2 py-2">
+            <h4 class="text-center mb-3">Devoured Burgers</h4>
+
+            {{#each burgers}}
+            {{#if is_selected}}
+            <div class="d-flex flex-wrap justify-content-between align-items-center eaten mb-3 p-2 rounded-lg">
+                <div class="" id={{id}}>{{burger_name}}</div>
+                <div class=" pl-0"> <a class="d-inline-block mx-3 btn btn-info" href="/api/remove/{{id}}">Remove
+                        it!</a> </div>
+
+            </div>
+            {{/if}}
+            {{/each}}
+
         </div>
     </div>
     <div class="row mt-5">
         <div class="col-12">
-            <div class="card mx-auto w-50 border-0">
+            <div class="card mx-auto w-100 border-0 new-entry">
                 <div class=" mx-auto my-3 display-5">Add a burger to the menu</div>
                 <form action="/newburger" method="post">
                     <div class="form-group mx-auto px-3">

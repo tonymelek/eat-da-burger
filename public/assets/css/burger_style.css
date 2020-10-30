@@ -8,9 +8,19 @@ img{
     font-size:1.5rem;
     font-weight: bold;
 }
-table{
+.wrap{
     border:1px solid #333;
+    border-radius: 10px;
+
 }
-tbody{
-    margin:10px;
-}
+@media only screen and (min-width: 600px) {
+    .new-entry {
+      max-width:75%;
+    }
+  }
+  .uneaten{
+      background-color: #f3f59c;
+  }
+  .eaten{
+      background-color: #f3f59c;
+  }

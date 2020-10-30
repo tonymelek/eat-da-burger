@@ -11,13 +11,18 @@ router.get('/api/devour/:id', async (req, res) => {
     await burger.update(req.params.id)
     res.redirect("/")
 })
-router.get('/api/delete/:id', async (req, res) => {
+router.get('/api/remove/:id', async (req, res) => {
     await burger.remove(req.params.id)
     res.redirect("/")
 })
+
 router.post('/newburger', async (req, res) => {
     console.log(req.body);
     await burger.insert(req.body.burger)
+    res.redirect("/")
+})
+router.get('/api/delete/:id', async (req, res) => {
+    await burger.delete(req.params.id)
     res.redirect("/")
 })
 

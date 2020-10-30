@@ -15,6 +15,9 @@ const burger = {
     remove: function (id) {
         orm.removeOne(id)
 
+    },
+    delete: function (id) {
+        orm.deleteOne(id)
     }
 
 }

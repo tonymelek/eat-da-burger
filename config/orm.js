@@ -44,7 +44,16 @@ const orm = {
             if (err) {
                 throw err
             } else {
-                console.log(`${id} has been marked as selected`);
+                console.log(`${id} has been marked as not selected`);
+            }
+        })
+    },
+    deleteOne: function (id) {
+        connection.query('delete from burger_list where id=? ', [id], (err, data) => {
+            if (err) {
+                throw err
+            } else {
+                console.log(`${id} has been deleted`);
             }
         })
     }
